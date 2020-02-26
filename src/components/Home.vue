@@ -1,20 +1,18 @@
 <template>
-  <v-container fluid>
+  <v-container grid-list-md justify="center" fluid ma-10 pa-10 fill-height>
     <v-card class="mx-auto">
-      <v-card-title
-        style="margin: 0 auto;display: block;background-color: aliceblue;"
-        class="headline grey lighten-4 text-center"
-        primary-title
-      >
-        Interview Management
+      <v-card-title class="headline grey lighten-4 text-center" primary-title>
+        Vue JS Quiz
       </v-card-title>
       <v-card-text>
-        <p>Click below to start the Interview</p>
+        <p>Click below to start the Quiz</p>
       </v-card-text>
-      <v-card-actions style="margin: 0 auto;display: block;">
-        <v-btn @click="onClickStartButton" color="red lighten-2">
-          Proceed
-        </v-btn>
+      <v-card-actions>
+        <v-flex align-end>
+          <v-btn center color="primary" @click="onClickStartButton">
+            Proceed
+          </v-btn>
+        </v-flex>
       </v-card-actions>
     </v-card>
   </v-container>

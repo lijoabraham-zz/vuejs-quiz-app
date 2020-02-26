@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <Home v-if="!started" @start-clicked="onClickStartButton" />
-    <Question v-if="started" />
+    <v-app>
+      <Home v-if="!started" @start-clicked="onClickStartButton" />
+      <Question v-if="started" />
+    </v-app>
   </div>
 </template>
 
