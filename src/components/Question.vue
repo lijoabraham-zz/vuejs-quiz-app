@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container max-width="50%">
     <v-card class="mx-auto">
       <v-card-title
         style="margin: 0 auto;display: block;background-color: aliceblue;"
@@ -9,11 +9,11 @@
         Question
       </v-card-title>
       <v-card-text>
-        <p>Click below to start the Interview</p>
+        <p>Question 1</p>
       </v-card-text>
-      <v-card-actions style="margin: 0 auto;display: block;">
-        <v-btn @click="started = true" color="red lighten-2">
-          Proceed
+      <v-card-actions>
+        <v-btn color="red lighten-2">
+          Next
         </v-btn>
       </v-card-actions>
     </v-card>
