@@ -15,7 +15,6 @@
       </v-card-title>
       <v-card-text>
         <v-radio-group
-          v-model="answer"
           column
           :rules="[v => !!v || 'Item is required']"
           required
@@ -26,20 +25,31 @@
             :key="option.oid"
             :label="option.answer"
             :value="option.oid"
+            @change="selectedAnswer(question.qid, option.oid)"
           ></v-radio>
         </v-radio-group>
       </v-card-text>
       <v-card-actions>
         <v-flex offset-xs10 align-end>
           <v-btn
-            :disabled="qIndex + 1 >= getQuestions.length"
-            @click="goToNextQuestion"
+            v-show="qIndex + 1 < getQuestions.length"
+            @click="goToNextQuestion()"
             right
             large
             color="success"
             dark
           >
             Next
+          </v-btn>
+          <v-btn
+            v-show="qIndex + 1 === getQuestions.length"
+            @click="finishQuiz()"
+            right
+            large
+            color="success"
+            dark
+          >
+            Finish
           </v-btn>
         </v-flex>
       </v-card-actions>
@@ -52,8 +62,9 @@ export default {
   name: "Question",
   data() {
     return {
-      answer: null,
-      qIndex: 0
+      answers: [],
+      qIndex: 0,
+      currentAnswer: null
     };
   },
   methods: {
@@ -61,7 +72,22 @@ export default {
       return this.qIndex == index;
     },
     goToNextQuestion() {
+      if (this.currentAnswer == null) {
+        alert("Please select one answer");
+        return false;
+      }
+      this.answers.push(this.currentAnswer);
       this.qIndex++;
+      this.currentAnswer = null;
+    },
+    selectedAnswer(qid, oid) {
+      this.currentAnswer = { qid, oid };
+    },
+    finishQuiz() {
+      this.goToNextQuestion();
+      if (this.qIndex == this.answers.length) {
+        this.$emit("finish-clicked", this.answers, this.getQuestions);
+      }
     }
   },
   computed: {

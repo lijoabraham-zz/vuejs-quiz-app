@@ -1,14 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../components/Home";
+import Finish from "../components/Finish";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/finish",
+    name: "Finish",
+    component: Finish
   }
 ];
 

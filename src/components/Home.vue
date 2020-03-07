@@ -7,7 +7,7 @@
             class="headline grey lighten-4 text-center"
             primary-title
           >
-            Vue JS Quiz
+            Vue JS Basic Quiz
           </v-card-title>
           <v-card-text>
             <p>Click below to start the Quiz</p>
@@ -29,9 +29,7 @@
 export default {
   name: "Home",
   data: function() {
-    return {
-      //started: false
-    };
+    return {};
   },
   methods: {
     onClickStartButton() {

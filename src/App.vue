@@ -2,7 +2,11 @@
   <div id="app">
     <v-app>
       <Home v-if="!started" @start-clicked="onClickStartButton" />
-      <Question v-if="started" />
+      <Question
+        v-if="started && !finish"
+        @finish-clicked="onClickFinishButton"
+      />
+      <Finish :answers="answers" :questions="questions" v-if="finish" />
     </v-app>
   </div>
 </template>
@@ -10,21 +14,31 @@
 <script>
 import Home from "./components/Home";
 import Question from "./components/Question";
+import Finish from "./components/Finish";
 
 export default {
   name: "App",
   data: function() {
     return {
-      started: false
+      started: false,
+      finish: false,
+      answers: null,
+      questions: null
     };
   },
   components: {
     Home,
-    Question
+    Question,
+    Finish
   },
   methods: {
     onClickStartButton(value) {
       this.started = value;
+    },
+    onClickFinishButton(answers, questions) {
+      this.finish = true;
+      this.answers = answers;
+      this.questions = questions;
     }
   }
 };
