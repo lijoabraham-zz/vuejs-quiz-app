@@ -20,7 +20,6 @@ import PieChart from "./Piechart";
 
 export default {
   name: "Finish",
-  props: ["answers", "questions"],
   components: {
     PieChart
   },
@@ -31,15 +30,21 @@ export default {
         maintainAspectRatio: false,
         title: {
           display: true,
-          text: "Total - " + this.questions.length,
+          text: "Total - " + this.getQuestions,
           fontSize: 16
         }
       }
     };
   },
   computed: {
+    getQuestions: function() {
+      return this.$store.getters.questions;
+    },
+    getAnswers: function() {
+      return this.$store.getters.answers;
+    },
     getFinalResult: function() {
-      let correctOptions = this.questions.map(function(data) {
+      let correctOptions = this.getQuestions.map(function(data) {
         let correctOption = data.options.filter(function(option) {
           return option.correct == true;
         });
@@ -50,7 +55,7 @@ export default {
         correctAnswers[item[0]] = item[1];
       });
       let finalResult = { correct: 0, incorrect: 0 };
-      this.answers.forEach(function(item) {
+      this.getAnswers.forEach(function(item) {
         if (correctAnswers[item.qid] == item.oid) {
           finalResult.correct++;
         } else {

@@ -62,7 +62,6 @@ export default {
   name: "Question",
   data() {
     return {
-      answers: [],
       qIndex: 0,
       currentAnswer: null
     };
@@ -71,12 +70,15 @@ export default {
     showQuestion(index) {
       return this.qIndex == index;
     },
+    updateAnswer(currentAnswer) {
+      this.$store.dispatch("updateAnswer", currentAnswer);
+    },
     goToNextQuestion() {
       if (this.currentAnswer == null) {
         alert("Please select one answer");
         return false;
       }
-      this.answers.push(this.currentAnswer);
+      this.updateAnswer(this.currentAnswer);
       this.qIndex++;
       this.currentAnswer = null;
     },
@@ -85,14 +87,17 @@ export default {
     },
     finishQuiz() {
       this.goToNextQuestion();
-      if (this.qIndex == this.answers.length) {
+      if (this.qIndex == this.getAnswers.length) {
         this.$emit("finish-clicked", this.answers, this.getQuestions);
       }
     }
   },
   computed: {
     getQuestions: function() {
-      return this.$store.state.questions;
+      return this.$store.getters.questions;
+    },
+    getAnswers: function() {
+      return this.$store.getters.answers;
     }
   }
 };

@@ -27,7 +27,26 @@ const store = new Vuex.Store({
           { oid: 8, answer: "v-bind", correct: true }
         ]
       }
-    ]
+    ],
+    answers: []
+  },
+  getters: {
+    questions(state) {
+      return state.questions;
+    },
+    answers(state) {
+      return state.answers;
+    }
+  },
+  mutations: {
+    updateAnswer(state, currentAnswer) {
+      state.answers.push(currentAnswer);
+    }
+  },
+  actions: {
+    updateAnswer(context, currentAnswer) {
+      context.commit("updateAnswer", currentAnswer);
+    }
   }
 });
 

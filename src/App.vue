@@ -6,7 +6,7 @@
         v-if="started && !finish"
         @finish-clicked="onClickFinishButton"
       />
-      <Finish :answers="answers" :questions="questions" v-if="finish" />
+      <Finish v-if="finish" />
     </v-app>
   </div>
 </template>
@@ -21,9 +21,7 @@ export default {
   data: function() {
     return {
       started: false,
-      finish: false,
-      answers: null,
-      questions: null
+      finish: false
     };
   },
   components: {
@@ -35,10 +33,8 @@ export default {
     onClickStartButton(value) {
       this.started = value;
     },
-    onClickFinishButton(answers, questions) {
+    onClickFinishButton() {
       this.finish = true;
-      this.answers = answers;
-      this.questions = questions;
     }
   }
 };
