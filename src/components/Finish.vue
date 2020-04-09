@@ -21,7 +21,7 @@ import PieChart from "./Piechart";
 export default {
   name: "Finish",
   components: {
-    PieChart
+    PieChart,
   },
   data() {
     return {
@@ -30,10 +30,10 @@ export default {
         maintainAspectRatio: false,
         title: {
           display: true,
-          text: "Total - " + this.getQuestions,
-          fontSize: 16
-        }
-      }
+          text: "Final Result ",
+          fontSize: 16,
+        },
+      },
     };
   },
   computed: {
@@ -68,12 +68,12 @@ export default {
           {
             label: "Results",
             backgroundColor: ["#41B883", "#E46651"],
-            data: Object.values(finalResult)
-          }
-        ]
+            data: Object.values(finalResult),
+          },
+        ],
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
