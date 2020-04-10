@@ -1,0 +1,490 @@
+{
+  "questions": [
+    {
+      "qid": 1,
+      "question": "What is the short form of v-bind?",
+      "options": [
+        {
+          "oid": 1,
+          "answer": "No short form"
+        },
+        {
+          "oid": 2,
+          "answer": ":",
+          "correct": true
+        },
+        {
+          "oid": 3,
+          "answer": "bind"
+        },
+        {
+          "oid": 4,
+          "answer": ";"
+        }
+      ]
+    },
+    {
+      "qid": 2,
+      "question": "In how many way we can define filter in vue.js?",
+      "options": [
+        {
+          "oid": 5,
+          "answer": "3"
+        },
+        {
+          "oid": 6,
+          "answer": "4"
+        },
+        {
+          "oid": 7,
+          "answer": "1"
+        },
+        {
+          "oid": 8,
+          "answer": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "qid": 3,
+      "question": "What are the advantages of using Vue.js?",
+      "options": [
+        {
+          "oid": 9,
+          "answer": " Small in size — The size of this framework is 18 to 21KB and it takes no time for the user to download and use it."
+        },
+        {
+          "oid": 10,
+          "answer": " Easy to Understand — One of the reasons for the popularity of this framework is that it is quite easy to understand. The user can easily add Vue.js to his web project because of its simple structure."
+        },
+        {
+          "oid": 11,
+          "answer": " Simple Integration — Vue.js can be integrated with the existing applications easily."
+        },
+        {
+          "oid": 12,
+          "answer": " Virtual DOM — It uses virtual DOM similar to other existing frameworks such as ReactJS, Ember etc. Virtual DOM is a light-weight in-memory tree representation of the original HTML DOM and updated without affecting the original DOM."
+        },
+        {
+          "oid": 13,
+          "answer": " All of the above",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "qid": 4,
+      "question": ".prevent will be ignored if we use .passive and .prevent together and it will probably show you a warning.",
+      "options": [
+        {
+          "oid": 14,
+          "answer": " True",
+          "correct": true
+        },
+        {
+          "oid": 15,
+          "answer": " False"
+        }
+      ]
+    },
+    {
+      "qid": 5,
+      "question": "Which directive is used to make two-way binding ?",
+      "options": [
+        {
+          "oid": 16,
+          "answer": " no one"
+        },
+        {
+          "oid": 17,
+          "answer": " v-inline"
+        },
+        {
+          "oid": 18,
+          "answer": " v-model",
+          "correct": true
+        },
+        {
+          "oid": 19,
+          "answer": " v-on"
+        }
+      ]
+    },
+    {
+      "qid": 6,
+      "question": "Which directive is to used to attach event listeners that invoke methods?",
+      "options": [
+        {
+          "oid": 20,
+          "answer": " v-for"
+        },
+        {
+          "oid": 21,
+          "answer": " v-on",
+          "correct": true
+        },
+        {
+          "oid": 22,
+          "answer": " v-model"
+        },
+        {
+          "oid": 23,
+          "answer": " v-bind"
+        }
+      ]
+    },
+    {
+      "qid": 7,
+      "question": "Which data binding interpolation is also known as “Mustache” syntax?",
+      "options": [
+        {
+          "oid": 24,
+          "answer": " []"
+        },
+        {
+          "oid": 25,
+          "answer": " v-model"
+        },
+        {
+          "oid": 26,
+          "answer": " {{}}",
+          "correct": true
+        },
+        {
+          "oid": 27,
+          "answer": " v-on"
+        }
+      ]
+    },
+    {
+      "qid": 8,
+      "question": "How to use for loop in vue js?",
+      "options": [
+        {
+          "oid": 28,
+          "answer": " vFor"
+        },
+        {
+          "oid": 29,
+          "answer": " *v-for"
+        },
+        {
+          "oid": 30,
+          "answer": " v-for",
+          "correct": true
+        },
+        {
+          "oid": 31,
+          "answer": " *ngFor"
+        }
+      ]
+    },
+    {
+      "qid": 9,
+      "question": "When a View Model is destroyed, all event listeners are automatically removed.",
+      "options": [
+        {
+          "oid": 32,
+          "answer": " True",
+          "correct": true
+        },
+        {
+          "oid": 33,
+          "answer": " False"
+        }
+      ]
+    },
+    {
+      "qid": 10,
+      "question": "How many types of directive available in vue.js?",
+      "options": [
+        {
+          "oid": 34,
+          "answer": " 2"
+        },
+        {
+          "oid": 35,
+          "answer": " 6"
+        },
+        {
+          "oid": 36,
+          "answer": " 4",
+          "correct": true
+        },
+        {
+          "oid": 37,
+          "answer": " 7"
+        }
+      ]
+    },
+    {
+      "qid": 11,
+      "question": "How to Install the vue cli globally?",
+      "options": [
+        {
+          "oid": 38,
+          "answer": " npm install vue-cli"
+        },
+        {
+          "oid": 39,
+          "answer": " npm install -g vue-cli",
+          "correct": true
+        },
+        {
+          "oid": 40,
+          "answer": " npm install vue-cli -global"
+        },
+        {
+          "oid": 41,
+          "answer": " npm install vue-cli -g"
+        }
+      ]
+    },
+    {
+      "qid": 12,
+      "question": "Which event modifier is used for only prevent clicks on the element itself?",
+      "options": [
+        {
+          "oid": 42,
+          "answer": " @click.prevent.self"
+        },
+        {
+          "oid": 43,
+          "answer": " @click.self.prevent",
+          "correct": true
+        },
+        {
+          "oid": 44,
+          "answer": " @click.self.prevent"
+        },
+        {
+          "oid": 45,
+          "answer": " @click.prevent"
+        }
+      ]
+    },
+    {
+      "qid": 13,
+      "question": "Which is used to dynamically bind one or more attributes, or a component property to an expression?",
+      "options": [
+        {
+          "oid": 46,
+          "answer": " v-pre"
+        },
+        {
+          "oid": 47,
+          "answer": " v-bind",
+          "correct": true
+        },
+        {
+          "oid": 48,
+          "answer": " v-once"
+        },
+        {
+          "oid": 49,
+          "answer": " v-html"
+        }
+      ]
+    },
+    {
+      "qid": 14,
+      "question": "What is the correct way to create new instance in vue.js?",
+      "options": [
+        {
+          "oid": 50,
+          "answer": " var text = new Vue({ // options })",
+          "correct": true
+        },
+        {
+          "oid": 51,
+          "answer": " var text = new vue(){ // options }"
+        },
+        {
+          "oid": 52,
+          "answer": " var text = new object({ // options })"
+        },
+        {
+          "oid": 53,
+          "answer": " var text = new text({ // options })"
+        }
+      ]
+    },
+    {
+      "qid": 15,
+      "question": "Which keyword is used to create constant in vue.js?",
+      "options": [
+        {
+          "oid": 54,
+          "answer": " none of these"
+        },
+        {
+          "oid": 55,
+          "answer": " define"
+        },
+        {
+          "oid": 56,
+          "answer": " const",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "qid": 16,
+      "question": "Which event modifier will be used, if we want to perform the click event only for one time?",
+      "options": [
+        {
+          "oid": 57,
+          "answer": " <a @:click.once=\"dotask\"></a>",
+          "correct": true
+        },
+        {
+          "oid": 58,
+          "answer": " <a @:click.prevent-once=\"dotask\"></a>"
+        },
+        {
+          "oid": 59,
+          "answer": " <a @:click.stop=\"dotask\"></a>"
+        },
+        {
+          "oid": 60,
+          "answer": " <a @:click.passive=\"dotask\"></a>"
+        }
+      ]
+    },
+    {
+      "qid": 17,
+      "question": "V-show doest not support the <template> element.",
+      "options": [
+        {
+          "oid": 61,
+          "answer": " True",
+          "correct": true
+        },
+        {
+          "oid": 62,
+          "answer": " False"
+        }
+      ]
+    },
+    {
+      "qid": 18,
+      "question": "What is the full form of MVVM?",
+      "options": [
+        {
+          "oid": 63,
+          "answer": " Model-View-ValueModel"
+        },
+        {
+          "oid": 64,
+          "answer": " Model-Value-ValueModel"
+        },
+        {
+          "oid": 65,
+          "answer": " Model-View-ViewModel",
+          "correct": true
+        },
+        {
+          "oid": 66,
+          "answer": " Module-View-ViewModel"
+        }
+      ]
+    },
+    {
+      "qid": 19,
+      "question": "All are life cycle hooks in Vue except ... ?",
+      "options": [
+        {
+          "oid": 67,
+          "answer": " beforeCreate"
+        },
+        {
+          "oid": 68,
+          "answer": " created"
+        },
+        {
+          "oid": 69,
+          "answer": " mounted"
+        },
+        {
+          "oid": 70,
+          "answer": " beforeMount"
+        },
+        {
+          "oid": 71,
+          "answer": " didMount",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "qid": 20,
+      "question": "What is the difference between v-show and v-if directives?",
+      "options": [
+        {
+          "oid": 72,
+          "answer": " v-if only renders the element to the DOM if the expression passes whereas v-show renders all elements to the DOM and then uses the CSS display property to show/hide elements based on expression."
+        },
+        {
+          "oid": 73,
+          "answer": " v-if supports v-else and v-else-if directives whereas v-show doesn't support else directives."
+        },
+        {
+          "oid": 74,
+          "answer": " v-if supports tab but v-show doesn't support."
+        },
+        {
+          "oid": 75,
+          "answer": " All of the above",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "qid": 21,
+      "question": "What is $parent in Vue?",
+      "options": [
+        {
+          "oid": 76,
+          "answer": " Similar to $root, the $parent property can be used to access the parent instance from a child."
+        },
+        {
+          "oid": 77,
+          "answer": " It provides direct access, it makes the application hard to test and debug."
+        },
+        {
+          "oid": 78,
+          "answer": " All of the above",
+          "correct": true
+        },
+        {
+          "oid": 79,
+          "answer": " None of the above"
+        }
+      ]
+    },
+    {
+      "qid": 22,
+      "question": "V-model directive is used in ... ?",
+      "options": [
+        {
+          "oid": 80,
+          "answer": " two-way data binding where the view(UI) part of application automatically updates when data Model is changed",
+          "correct": true
+        },
+        {
+          "oid": 81,
+          "answer": " two-way data binding where the view(UI) part of application does not update automatically. We need to write some custom code to make it updated every time a data model is changed."
+        },
+        {
+          "oid": 82,
+          "answer": " one-way data binding where the view(UI) part of application automatically updates when data Model is changed"
+        },
+        {
+          "oid": 83,
+          "answer": " one-way data binding where the view(UI) part of application does not updates automatically. We need to write some custom code to make it updated every time a data model is changed."
+        }
+      ]
+    }
+  ]
+}

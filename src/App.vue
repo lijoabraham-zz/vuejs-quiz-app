@@ -21,13 +21,13 @@ export default {
   data: function() {
     return {
       started: false,
-      finish: false
+      finish: false,
     };
   },
   components: {
     Home,
     Question,
-    Finish
+    Finish,
   },
   methods: {
     onClickStartButton(value) {
@@ -35,8 +35,11 @@ export default {
     },
     onClickFinishButton() {
       this.finish = true;
-    }
-  }
+    },
+  },
+  created() {
+    this.$store.dispatch("loadData");
+  },
 };
 </script>
 
