@@ -22,7 +22,20 @@ const store = new Vuex.Store({
       state.answers.push(currentAnswer);
     },
     updateQuestions(state, questions) {
-      state.questions = questions.questions;
+      let n = 10;
+       var result = new Array(n),
+        len = questions.questions.length,
+        taken = new Array(len);
+      if (n > len){
+        console.log(n,len);
+        throw new RangeError("getRandom: more elements taken than available");
+      }
+      while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = questions.questions[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+      }
+      state.questions = result;
     },
   },
   actions: {

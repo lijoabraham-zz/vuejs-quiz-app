@@ -16,7 +16,7 @@
       <v-card-text>
         <v-radio-group
           column
-          :rules="[v => !!v || 'Item is required']"
+          :rules="[(v) => !!v || 'Item is required']"
           required
         >
           <v-radio
@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       qIndex: 0,
-      currentAnswer: null
+      currentAnswer: null,
     };
   },
   methods: {
@@ -86,11 +86,15 @@ export default {
       this.currentAnswer = { qid, oid };
     },
     finishQuiz() {
+      if (this.currentAnswer == null) {
+        alert("Please select one answer");
+        return false;
+      }
       this.goToNextQuestion();
       if (this.qIndex == this.getAnswers.length) {
         this.$emit("finish-clicked", this.answers, this.getQuestions);
       }
-    }
+    },
   },
   computed: {
     getQuestions: function() {
@@ -98,8 +102,8 @@ export default {
     },
     getAnswers: function() {
       return this.$store.getters.answers;
-    }
-  }
+    },
+  },
 };
 </script>
 
