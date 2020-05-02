@@ -110,7 +110,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .quiz-inner-block {
-  max-width: 820px;
+  max-width: 1000px;
   position: relative;
   background-color: #fff;
   border-radius: 2px;
