@@ -1,0 +1,12 @@
+# for local development
+version: '2.3'
+services:
+  frontend:
+    build:
+      context: .
+      target: 'build-stage'
+    ports:
+    - '8080:8080'
+    volumes:
+    - '.:/app'
+    command: /bin/sh -c "yarn serve"
