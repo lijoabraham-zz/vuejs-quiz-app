@@ -6,10 +6,14 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    quizStatus : false,
     questions: [],
     answers: [],
   },
   getters: {
+    getStatus(state) {
+      return state.quizStatus;
+    },
     questions(state) {
       return state.questions;
     },
@@ -18,6 +22,9 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
+    updateStatus(state, status) {
+      state.quizStatus = status;
+    },
     updateAnswer(state, currentAnswer) {
       state.answers.push(currentAnswer);
     },
@@ -39,6 +46,9 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    updateStatus(context, status) {
+      context.commit("updateStatus", status);
+    },
     updateAnswer(context, currentAnswer) {
       context.commit("updateAnswer", currentAnswer);
     },

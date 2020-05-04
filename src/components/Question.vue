@@ -13,6 +13,9 @@
         </v-chip>
         <span class="question">{{ question.question }}</span>
       </v-card-title>
+      <v-alert v-show="alert" class="q-alert" type="error">
+        Please select one answer
+      </v-alert>
       <v-card-text>
         <v-radio-group
           column
@@ -62,6 +65,7 @@ export default {
   name: "Question",
   data() {
     return {
+      alert : false,
       qIndex: 0,
       currentAnswer: null,
     };
@@ -75,24 +79,26 @@ export default {
     },
     goToNextQuestion() {
       if (this.currentAnswer == null) {
-        alert("Please select one answer");
+        this.alert = true;
         return false;
       }
       this.updateAnswer(this.currentAnswer);
       this.qIndex++;
       this.currentAnswer = null;
+      this.alert = false;
     },
     selectedAnswer(qid, oid) {
       this.currentAnswer = { qid, oid };
     },
     finishQuiz() {
       if (this.currentAnswer == null) {
-        alert("Please select one answer");
+        this.alert = true;
         return false;
       }
       this.goToNextQuestion();
       if (this.qIndex == this.getAnswers.length) {
         this.$emit("finish-clicked", this.answers, this.getQuestions);
+        this.$router.push({ name: "finish" });
       }
     },
   },
@@ -173,5 +179,9 @@ export default {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   background-image: none;
+}
+.q-alert {
+  margin: 0 auto;
+  width: 90%;
 }
 </style>

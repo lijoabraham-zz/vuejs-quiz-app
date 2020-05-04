@@ -33,7 +33,9 @@ export default {
   },
   methods: {
     onClickStartButton() {
+      this.$store.dispatch("updateStatus", true);
       this.$emit("start-clicked", true);
+      this.$router.push({ name: 'question' });
     }
   }
 };
