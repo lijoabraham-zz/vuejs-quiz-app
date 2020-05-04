@@ -12,12 +12,14 @@ Below are the various libraries used in the app.
 
 ## Installation
 
+**Give correct permission before running the commands.**
+
  ### Docker based installation
 
 Use the docker [docker-compose](https://docs.docker.com/compose/) to install Vue.js Quiz App
 
 ```bash
-docker-compose up -d --build
+docker-compose up --build
 ```
 
  ### Normal installation
