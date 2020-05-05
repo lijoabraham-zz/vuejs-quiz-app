@@ -29,8 +29,6 @@ docker-compose up -d --build
 
  ### Normal installation
 
-For normal installation, use the develop branch.
-
 Use the [npm](https://www.npmjs.com/) to install Vue.js quiz app
 
 ```bash
