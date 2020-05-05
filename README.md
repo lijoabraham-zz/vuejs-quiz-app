@@ -1,5 +1,12 @@
 # Vue.js Basic Quiz App
 
+## Prerequisites
+
+- Download Docker Community Edition - https://www.docker.com/community-edition
+- NPM (version 6.10.0 and above) - https://www.npmjs.com/get-npm
+
+## Details
+
 This is a basic Vue.js app using various utilities/libraries. 
 
 Below are the various libraries used in the app.
@@ -12,14 +19,12 @@ Below are the various libraries used in the app.
 
 ## Installation
 
-**Give correct permission before running the commands.**
-
  ### Docker based installation
 
 Use the docker [docker-compose](https://docs.docker.com/compose/) to install Vue.js Quiz App
 
 ```bash
-docker-compose up --build
+docker-compose up -d --build
 ```
 
  ### Normal installation
