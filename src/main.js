@@ -6,6 +6,9 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+// Components
+Vue.component("Home", require("./components/Home").default);
+
 new Vue({
   vuetify,
   router,
