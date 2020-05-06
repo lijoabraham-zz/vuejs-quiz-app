@@ -46,4 +46,10 @@ Frontend testing uses [Vue test utils](https://vue-test-utils.vuejs.org) with Je
 ### Running tests
 To run tests: `npm run test`
 
+To run tests in docker 
+```bash
+docker-compose exec frontend /bin/sh
+npm run test
+```
+
 To run a specific test: `npm run test -t TestName`
