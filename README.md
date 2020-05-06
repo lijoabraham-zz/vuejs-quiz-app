@@ -16,6 +16,7 @@ Below are the various libraries used in the app.
  - [Vuex](https://vuex.vuejs.org/) - Vuex is a state management pattern + library for Vue.js applications.
  - [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
  - [Charts](https://vue-chartjs.org/) - vue-chartjs is a wrapper for [Chart.js](https://github.com/chartjs/Chart.js) in Vue.
+ - [Vue test utils](https://vue-test-utils.vuejs.org) - Vue Test Utils is the official unit testing utility library for Vue.js.
 
 ## Installation
 
