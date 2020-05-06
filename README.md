@@ -41,6 +41,7 @@ We should be able to access our Vue.js quiz app on [localhost:8080](http://local
 ## Testing
 
 ### Frontend Testing
+
 Frontend testing uses [Vue test utils](https://vue-test-utils.vuejs.org) with Jest.
 
 ### Running tests
