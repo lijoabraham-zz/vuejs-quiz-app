@@ -17,6 +17,7 @@
 
 <script>
 import PieChart from "./Piechart";
+import {mapState} from 'vuex'
 
 export default {
   name: "Finish",
@@ -37,14 +38,9 @@ export default {
     };
   },
   computed: {
-    getQuestions: function() {
-      return this.$store.getters.questions;
-    },
-    getAnswers: function() {
-      return this.$store.getters.answers;
-    },
+    ...mapState(["questions", "answers"]),
     getFinalResult: function() {
-      let correctOptions = this.getQuestions.map(function(data) {
+      let correctOptions = this.questions.map(function(data) {
         let correctOption = data.options.filter(function(option) {
           return option.correct == true;
         });
@@ -55,7 +51,7 @@ export default {
         correctAnswers[item[0]] = item[1];
       });
       let finalResult = { correct: 0, incorrect: 0 };
-      this.getAnswers.forEach(function(item) {
+      this.answers.forEach(function(item) {
         if (correctAnswers[item.qid] == item.oid) {
           finalResult.correct++;
         } else {

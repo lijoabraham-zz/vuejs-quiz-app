@@ -3,13 +3,13 @@
     <div class="title-quiz"><h1>Vue.js Quiz</h1></div>
     <v-card
       v-show="showQuestion(index)"
-      v-for="(question, index) in getQuestions"
+      v-for="(question, index) in questions"
       v-bind:key="question.qid"
       class="mx-auto"
     >
       <v-card-title class="headline text-center" primary-title>
         <v-chip class="q-chip ma-2" color="blue" text-color="white">
-          {{ index + 1 }} / {{ getQuestions.length }}
+          {{ index + 1 }} / {{ questions.length }}
         </v-chip>
         <span class="question">{{ question.question }}</span>
       </v-card-title>
@@ -35,7 +35,7 @@
       <v-card-actions>
         <v-flex offset-xs10 align-end>
           <v-btn
-            v-show="qIndex + 1 < getQuestions.length"
+            v-show="qIndex + 1 < questions.length"
             @click="goToNextQuestion()"
             right
             large
@@ -45,7 +45,7 @@
             Next
           </v-btn>
           <v-btn
-            v-show="qIndex + 1 === getQuestions.length"
+            v-show="qIndex + 1 === questions.length"
             @click="finishQuiz()"
             right
             large
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: "Question",
   data() {
@@ -96,19 +97,14 @@ export default {
         return false;
       }
       this.goToNextQuestion();
-      if (this.qIndex == this.getAnswers.length) {
-        this.$emit("finish-clicked", this.answers, this.getQuestions);
+      if (this.qIndex == this.answers.length) {
+        this.$emit("finish-clicked", this.answers, this.questions);
         this.$router.push({ name: "finish" });
       }
     },
   },
   computed: {
-    getQuestions: function() {
-      return this.$store.getters.questions;
-    },
-    getAnswers: function() {
-      return this.$store.getters.answers;
-    },
+    ...mapState(["questions", "answers"])
   },
 };
 </script>
