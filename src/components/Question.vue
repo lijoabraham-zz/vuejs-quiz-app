@@ -1,6 +1,24 @@
 <template>
   <v-container class="quiz-inner-block">
-    <div class="title-quiz"><h1>Vue.js Quiz</h1></div>
+    <div class="title-quiz">
+      <h1 class="title-h1"> Vue.js Quiz</h1>
+      <circular-count-down-timer
+        :initial-value="300"
+        :stroke-width="5"
+        :seconds-stroke-color="'#6fcbbb'"
+        :minutes-stroke-color="'#3a96d5'"
+        :underneath-stroke-color="'lightgrey'"
+        :size="80"
+        :padding="4"
+        :minute-label="'minutes'"
+        :second-label="'seconds'"
+        :show-second="true"
+        :show-minute="true"
+        :show-hour="false"
+        :show-negatives="false"
+        :notify-every="'minute'"
+></circular-count-down-timer>
+    </div>
     <v-card
       v-show="showQuestion(index)"
       v-for="(question, index) in questions"
@@ -61,12 +79,12 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   name: "Question",
   data() {
     return {
-      alert : false,
+      alert: false,
       qIndex: 0,
       currentAnswer: null,
     };
@@ -104,7 +122,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["questions", "answers"])
+    ...mapState(["questions", "answers"]),
   },
 };
 </script>
@@ -126,6 +144,11 @@ export default {
   margin: 0;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
+  display:flex;
+}
+
+.quiz-inner-block .title-h1 {
+  flex: 1;
 }
 .q-chip {
   background-color: #c2dfff;

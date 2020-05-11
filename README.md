@@ -17,6 +17,7 @@ Below are the various libraries used in the app.
  - [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js.
  - [Charts](https://vue-chartjs.org/) - vue-chartjs is a wrapper for [Chart.js](https://github.com/chartjs/Chart.js) in Vue.
  - [Vue test utils](https://vue-test-utils.vuejs.org) - Vue Test Utils is the official unit testing utility library for Vue.js.
+ - [Vue circular count down timer](https://github.com/noorzaie/vue-circular-count-down-timer) - Count down timer library for vue.js.
 
 ## Installation
 
