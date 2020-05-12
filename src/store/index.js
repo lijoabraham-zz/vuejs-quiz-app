@@ -31,7 +31,7 @@ const store = new Vuex.Store({
       state.answers.push(currentAnswer);
     },
     updateQuestions(state, questions) {
-      let n = 2;
+      let n = 10;
        var result = new Array(n),
         len = questions.questions.length,
         taken = new Array(len);
