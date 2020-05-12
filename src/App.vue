@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <v-app>
-      <Home v-if="!started" @start-clicked="onClickStartButton" />
+      <Home v-if="!quizStarted" />
       <Question
-        v-if="started && !finish"
-        @finish-clicked="onClickFinishButton"
+        v-if="quizStarted && !quizFinished"
       />
-      <Finish v-if="finish" />
+      <Finish v-if="quizFinished" />
     </v-app>
   </div>
 </template>
@@ -15,30 +14,23 @@
 import Home from "./components/Home";
 import Question from "./components/Question";
 import Finish from "./components/Finish";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "App",
-  data: function() {
-    return {
-      started: false,
-      finish: false,
-    };
-  },
   components: {
     Home,
     Question,
     Finish,
   },
+  computed: {
+    ...mapState(["quizStarted","quizFinished"]),
+  },
   methods: {
-    onClickStartButton(value) {
-      this.started = value;
-    },
-    onClickFinishButton() {
-      this.finish = true;
-    },
+    ...mapActions(['loadData'])
   },
   created() {
-    this.$store.dispatch("loadData");
+    this.loadData();
   },
 };
 </script>

@@ -9,9 +9,10 @@
           >
             Vue JS Basic Quiz
           </v-card-title>
-          <v-card-text>
+          <v-card-text left>
             <p>Click below to start the Quiz</p>
           </v-card-text>
+          <v-divider></v-divider>
           <v-card-actions>
             <v-flex align-end>
               <v-btn center color="primary" @click="onClickStartButton">
@@ -26,17 +27,22 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   name: "Home",
   data: function() {
     return {};
   },
   methods: {
+    ...mapActions(['updateQuizStarted']),
     onClickStartButton() {
-      this.$store.dispatch("updateStatus", true);
-      this.$emit("start-clicked", true);
+      localStorage.setItem('quizStarted', true);
+      this.updateQuizStarted(true);
       this.$router.push({ name: 'question' });
     }
+  },
+  created(){
+    localStorage.removeItem('quizStarted');
   }
 };
 </script>
@@ -56,5 +62,8 @@ li {
 }
 a {
   color: #42b983;
+}
+p {
+  margin: 15px;
 }
 </style>

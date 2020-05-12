@@ -6,30 +6,32 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    quizStatus : false,
+    dialog : false,
+    quizStarted : false,
+    quizFinished : false,
     questions: [],
     answers: [],
   },
   getters: {
-    getStatus(state) {
-      return state.quizStatus;
-    },
-    questions(state) {
-      return state.questions;
-    },
-    answers(state) {
-      return state.answers;
-    },
+    getStatus(state){
+      return state.quizStarted;
+    }
   },
   mutations: {
-    updateStatus(state, status) {
-      state.quizStatus = status;
+    updateQuizStarted(state, status) {
+      state.quizStarted = status;
+    }, 
+    updateQuizFinished(state, status) {
+      state.quizFinished = status;
+    }, 
+    updateDialog(state, status) {
+      state.dialog = status;
     },
     updateAnswer(state, currentAnswer) {
       state.answers.push(currentAnswer);
     },
     updateQuestions(state, questions) {
-      let n = 10;
+      let n = 2;
        var result = new Array(n),
         len = questions.questions.length,
         taken = new Array(len);
@@ -46,8 +48,22 @@ const store = new Vuex.Store({
     },
   },
   actions: {
-    updateStatus(context, status) {
-      context.commit("updateStatus", status);
+    refreshDialog({ commit }) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          commit('updateDialog',true);
+          resolve()
+        }, 1000)
+      })
+    },
+    updateQuizStarted(context, status) {
+      context.commit("updateQuizStarted", status);
+    }, 
+    updateQuizFinished(context, status) {
+      context.commit("updateQuizFinished", status);
+    },
+    updateDialog(context, status) {
+      context.commit("updateDialog", status);
     },
     updateAnswer(context, currentAnswer) {
       context.commit("updateAnswer", currentAnswer);

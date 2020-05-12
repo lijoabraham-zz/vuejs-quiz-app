@@ -32,15 +32,16 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  let status = store.getters.getStatus;
+  let storeStatus = store.getters.getStatus;
+  let status = localStorage.getItem('quizStarted');
   if (to.path !== "/") {
-    if (status) {
-      return next();
-    } else {
+    if (!status || !storeStatus) {
       return next({ name: "home" });
+    }else {
+      return next();
     }
   } else {
-    next();
+    return next();
   }
 });
 

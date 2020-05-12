@@ -1,10 +1,10 @@
 <template>
   <v-container class="quiz-inner-block">
     <div class="title-quiz">
-      <h1 class="title-h1"> Vue.js Quiz</h1>
+      <h1 class="title-h1">Vue.js Quiz</h1>
       <circular-count-down-timer
         :initial-value="300"
-        :stroke-width="5"
+        :stroke-width="9"
         :seconds-stroke-color="'#6fcbbb'"
         :minutes-stroke-color="'#3a96d5'"
         :underneath-stroke-color="'lightgrey'"
@@ -16,9 +16,10 @@
         :show-minute="true"
         :show-hour="false"
         :show-negatives="false"
-        :notify-every="'minute'"
-></circular-count-down-timer>
+        @finish="finished"
+      ></circular-count-down-timer>
     </div>
+    <Dialog></Dialog>
     <v-card
       v-show="showQuestion(index)"
       v-for="(question, index) in questions"
@@ -79,9 +80,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
+import Dialog from "./Dialog";
+
 export default {
   name: "Question",
+  components: {
+    Dialog,
+  },
   data() {
     return {
       alert: false,
@@ -90,18 +96,19 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["updateDialog", "updateQuizFinished", "updateAnswer"]),
     showQuestion(index) {
       return this.qIndex == index;
     },
-    updateAnswer(currentAnswer) {
-      this.$store.dispatch("updateAnswer", currentAnswer);
+    storeAnswer(currentAnswer) {
+      this.updateAnswer(currentAnswer);
     },
     goToNextQuestion() {
       if (this.currentAnswer == null) {
         this.alert = true;
         return false;
       }
-      this.updateAnswer(this.currentAnswer);
+      this.storeAnswer(this.currentAnswer);
       this.qIndex++;
       this.currentAnswer = null;
       this.alert = false;
@@ -116,13 +123,16 @@ export default {
       }
       this.goToNextQuestion();
       if (this.qIndex == this.answers.length) {
-        this.$emit("finish-clicked", this.answers, this.questions);
+        this.updateQuizFinished(true);
         this.$router.push({ name: "finish" });
       }
     },
+    finished() {
+      this.updateDialog(true);
+    },
   },
   computed: {
-    ...mapState(["questions", "answers"]),
+    ...mapState(["questions", "answers", "dialog"]),
   },
 };
 </script>
@@ -144,10 +154,11 @@ export default {
   margin: 0;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
-  display:flex;
+  display: flex;
 }
 
 .quiz-inner-block .title-h1 {
+  padding: 10px;
   flex: 1;
 }
 .q-chip {

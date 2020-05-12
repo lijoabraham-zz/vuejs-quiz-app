@@ -50,13 +50,12 @@ export default {
       correctOptions.forEach(function(item) {
         correctAnswers[item[0]] = item[1];
       });
-      let finalResult = { correct: 0, incorrect: 0 };
+      let finalResult = { correct: 0, incorrect: this.questions.length };
       this.answers.forEach(function(item) {
         if (correctAnswers[item.qid] == item.oid) {
           finalResult.correct++;
-        } else {
-          finalResult.incorrect++;
-        }
+          finalResult.incorrect--;
+        } 
       });
       return {
         labels: ["Correct", "Incorrect"],
@@ -70,6 +69,9 @@ export default {
       };
     },
   },
+  created(){
+    localStorage.removeItem('quizStarted');
+  }
 };
 </script>
 
