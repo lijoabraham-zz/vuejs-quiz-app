@@ -3,7 +3,7 @@
     <div class="title-quiz">
       <h1 class="title-h1">Vue.js Quiz</h1>
       <circular-count-down-timer
-        :initial-value="300"
+        :initial-value="getTimerInitialValue"
         :stroke-width="9"
         :seconds-stroke-color="'#6fcbbb'"
         :minutes-stroke-color="'#3a96d5'"
@@ -82,6 +82,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import Dialog from "./Dialog";
+import config from '../config/index.js';
 
 export default {
   name: "Question",
@@ -133,6 +134,9 @@ export default {
   },
   computed: {
     ...mapState(["questions", "answers", "dialog"]),
+    getTimerInitialValue(){
+      return config.TIMER_LIMIT;
+    }
   },
 };
 </script>

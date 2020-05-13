@@ -37,7 +37,10 @@ Use the [npm](https://www.npmjs.com/) to install Vue.js quiz app
 npm install
 npm run serve
 ```
-We should be able to access our Vue.js quiz app on [localhost:8080](http://localhost:8080) .
+We should be able to access our Vue.js quiz app on [localhost:8080](http://localhost:8080).
+You can change the host and port parameters in vue.config.js file if needed.
+
+For docker, port can be changed in docker-compose.yml file.
 
 ## Testing
 
@@ -55,3 +58,10 @@ npm run test
 ```
 
 To run a specific test: `npm run test -t TestName`
+
+## Configurations
+
+    You can configure the countdown timer limit and total number of questions from the config file located at `config/index.js`.
+
+    For total number of questions, you can change the `TOTAL_QUESTIONS` parameter and for countdown timer limit, change the `TIMER_LIMIT` value.
+

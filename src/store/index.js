@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import config from '../config/index.js';
 
 Vue.use(Vuex);
 
@@ -31,7 +32,7 @@ const store = new Vuex.Store({
       state.answers.push(currentAnswer);
     },
     updateQuestions(state, questions) {
-      let n = 10;
+      let n = config.TOTAL_QUESTIONS;
        var result = new Array(n),
         len = questions.questions.length,
         taken = new Array(len);
