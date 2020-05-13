@@ -61,7 +61,7 @@ To run a specific test: `npm run test -t TestName`
 
 ## Configurations
 
-    You can configure the countdown timer limit and total number of questions from the config file located at `config/index.js`.
+You can configure the countdown timer limit and total number of questions from the config file located at `config/index.js`.
 
-    For total number of questions, you can change the `TOTAL_QUESTIONS` parameter and for countdown timer limit, change the `TIMER_LIMIT` value.
+For total number of questions, you can change the `TOTAL_QUESTIONS` parameter and for countdown timer limit, change the `TIMER_LIMIT` value.
 
