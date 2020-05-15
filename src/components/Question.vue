@@ -2,22 +2,26 @@
   <v-container class="quiz-inner-block">
     <div class="title-quiz">
       <h1 class="title-h1">Vue.js Quiz</h1>
-      <circular-count-down-timer
-        :initial-value="getTimerInitialValue"
-        :stroke-width="9"
-        :seconds-stroke-color="'#6fcbbb'"
-        :minutes-stroke-color="'#3a96d5'"
-        :underneath-stroke-color="'lightgrey'"
-        :size="80"
-        :padding="4"
-        :minute-label="'minutes'"
-        :second-label="'seconds'"
-        :show-second="true"
-        :show-minute="true"
-        :show-hour="false"
-        :show-negatives="false"
-        @finish="finished"
-      ></circular-count-down-timer>
+      <v-card class="mr-2">
+        <v-card-text class="q-pad">
+          <circular-count-down-timer
+            :initial-value="getTimerInitialValue"
+            :stroke-width="9"
+            :seconds-stroke-color="'#6fcbbb'"
+            :minutes-stroke-color="'#3a96d5'"
+            :underneath-stroke-color="'lightgrey'"
+            :size="80"
+            :padding="4"
+            :minute-label="'minutes'"
+            :second-label="'seconds'"
+            :show-second="true"
+            :show-minute="true"
+            :show-hour="false"
+            :show-negatives="false"
+            @finish="finished"
+          ></circular-count-down-timer>
+        </v-card-text>
+      </v-card>
     </div>
     <Dialog></Dialog>
     <v-card
@@ -32,10 +36,10 @@
         </v-chip>
         <span class="question">{{ question.question }}</span>
       </v-card-title>
-      <v-alert v-show="alert" class="q-alert" type="error">
+      <v-alert v-if="alert" class="q-alert" type="error">
         Please select one answer
       </v-alert>
-      <v-card-text>
+      <v-card-text class="q-pad">
         <v-radio-group
           column
           :rules="[(v) => !!v || 'Item is required']"
@@ -82,7 +86,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import Dialog from "./Dialog";
-import config from '../config/index.js';
+import config from "../config/index.js";
 
 export default {
   name: "Question",
@@ -134,9 +138,9 @@ export default {
   },
   computed: {
     ...mapState(["questions", "answers", "dialog"]),
-    getTimerInitialValue(){
+    getTimerInitialValue() {
       return config.TIMER_LIMIT;
-    }
+    },
   },
 };
 </script>
@@ -154,7 +158,7 @@ export default {
 .quiz-inner-block .title-quiz {
   background-color: #e4edfd;
   text-align: center;
-  padding: 16px 0;
+  padding: 10px 0;
   margin: 0;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
@@ -162,7 +166,7 @@ export default {
 }
 
 .quiz-inner-block .title-h1 {
-  padding: 10px;
+  padding: 30px;
   flex: 1;
 }
 .q-chip {
@@ -217,5 +221,10 @@ export default {
 .q-alert {
   margin: 0 auto;
   width: 90%;
+  padding: 8px;
+  border-radius: 10px !important;
+}
+.q-pad {
+  padding: 8px !important;
 }
 </style>
